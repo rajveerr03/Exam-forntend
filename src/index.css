@@ -1,0 +1,179 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221 83% 21%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 350 85% 32%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 42 100% 59%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 21%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 221 83% 21%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for the sliding login/register box */
+.auth-box {
+  @apply relative overflow-hidden bg-white rounded-lg shadow-lg;
+  height: 540px;
+  width: 900px;
+  max-width: 100%;
+}
+
+.auth-box-forms {
+  @apply absolute top-0 h-full w-full;
+  transition: transform 0.6s ease-in-out;
+}
+
+.auth-box.slide-right .auth-box-forms {
+  transform: translateX(50%);
+}
+
+.form-container {
+  @apply absolute top-0 h-full transition-all duration-500;
+  width: 50%;
+}
+
+.login-container {
+  @apply left-0 z-10;
+  transform: translateX(0);
+}
+
+.auth-box.slide-right .login-container {
+  transform: translateX(-100%);
+}
+
+.register-container {
+  @apply right-0 opacity-0 z-0;
+  transform: translateX(100%);
+}
+
+.auth-box.slide-right .register-container {
+  @apply opacity-100 z-10;
+  transform: translateX(0);
+}
+
+.overlay-container {
+  @apply absolute top-0 left-1/2 h-full overflow-hidden z-50 transition-transform duration-500;
+  width: 50%;
+  transform: translateX(0);
+}
+
+.auth-box.slide-right .overlay-container {
+  transform: translateX(-100%);
+}
+
+.overlay {
+  @apply absolute -left-full h-full w-[200%] transform transition-transform duration-500;
+  background: linear-gradient(to right, #0A2463, #990D35);
+  transform: translateX(0);
+}
+
+.auth-box.slide-right .overlay {
+  transform: translateX(50%);
+}
+
+.overlay-panel {
+  @apply absolute top-0 flex flex-col items-center justify-center px-10 text-center text-white;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+}
+
+.overlay-left {
+  @apply left-0 -translate-x-[20%] transition-transform duration-500;
+}
+
+.auth-box.slide-right .overlay-left {
+  transform: translateX(0);
+}
+
+.overlay-right {
+  @apply right-0 translate-x-0 transition-transform duration-500;
+}
+
+.auth-box.slide-right .overlay-right {
+  transform: translateX(20%);
+}
