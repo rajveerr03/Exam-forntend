@@ -111,7 +111,7 @@ const AdminDashboard = () => {
               <td className="p-4 font-medium">{user.name}</td>
               <td className="p-4 text-sm text-muted-foreground">{user.email}</td>
               <td className="p-4 capitalize">{user.role}</td>
-              <td className="p-4 text-sm">{user.school}</td>
+              <td className="p-4 text-sm">{user.department}</td>
               <td className="p-4 text-sm">{user.employeeId}</td>
               <td className="p-4">
                 <div className="flex gap-2 justify-end">
