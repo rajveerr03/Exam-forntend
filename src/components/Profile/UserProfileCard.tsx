@@ -52,7 +52,7 @@ const UserProfileCard = ({ user }: UserProfileCardProps) => {
 
     let submitData = { ...user , name: name , mobile:mobile}
 
-    let res = await axios.put(`http://localhost:3000/register/${user._id}` , submitData)
+    let res = await axios.put(`https://exam-backend-mocha.vercel.app/register/${user._id}` , submitData)
 
     if(res.data.success === true){
       toast.success("Profile updated successfully");

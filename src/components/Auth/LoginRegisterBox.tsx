@@ -43,7 +43,7 @@ const LoginRegisterBox = () => {
 
   const getDepartmentList = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/department");
+      const res = await axios.get("https://exam-backend-mocha.vercel.app/department");
       setDepartments(res.data.data);
     } catch (error) {
       console.error("Error fetching departments:", error);
@@ -65,7 +65,7 @@ const LoginRegisterBox = () => {
         password: loginData.password
       };
 
-      let res = await axios.post("http://localhost:3000/login" , submitData)
+      let res = await axios.post("https://exam-backend-mocha.vercel.app/login" , submitData)
 
       if (res.data.success === true) {
         setShowOtp(true);
@@ -80,7 +80,7 @@ const LoginRegisterBox = () => {
         return;
       }
 
-      let res = await axios.post("http://localhost:3000/verifyotp" , loginData)
+      let res = await axios.post("https://exam-backend-mocha.vercel.app/verifyotp" , loginData)
       if (res.data.success === true) {
         localStorage.setItem("role", res.data.role);
         localStorage.setItem("userId", res.data.userId);
@@ -106,7 +106,7 @@ const LoginRegisterBox = () => {
       return;
     }
     
-    const res = await axios.post("http://localhost:3000/register", registerData)
+    const res = await axios.post("https://exam-backend-mocha.vercel.app/register", registerData)
     if (res.data.success === true) {
       toast.success("Registration successful! Please log in.");
       setIsSlideRight(false);

@@ -17,14 +17,14 @@ const AdminDashboard = () => {
   }, []);
 
   let getAllUsers = async () => {
-    const res = await axios.get("http://localhost:3000/register");
+    const res = await axios.get("https://exam-backend-mocha.vercel.app/register");
     setPendingUsers(res.data.data.filter((user) => user.action === null && user.role !== "admin"));
     setUsers(res.data.data.filter((user) => user.action === "Accepted"));
   }
 
   const handleApprove = async (userId: string) => {
     
-    let res = await axios.patch(`http://localhost:3000/register/${userId}`, {
+    let res = await axios.patch(`https://exam-backend-mocha.vercel.app/register/${userId}`, {
       action: "Accepeted" })
       if(res.data.success === true){
         getAllUsers();
@@ -33,7 +33,7 @@ const AdminDashboard = () => {
   };
 
   const handleReject = async (userId: string) => {
-    let res = await axios.patch(`http://localhost:3000/register/${userId}`, {
+    let res = await axios.patch(`https://exam-backend-mocha.vercel.app/register/${userId}`, {
       action: "Rejected" })
       if(res.data.success === true){
         getAllUsers();
