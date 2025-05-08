@@ -34,7 +34,7 @@ const CoeDashboard = () => {
 
   const fetchDepartments = async () => {
     try {
-      const response = await axios.get("https://exam-backend-mocha.vercel.app/department");
+      const response = await axios.get("https://exam-backend-eight.vercel.app/department");
       setDepartmentList(response.data.data);
     } catch (error) {
       console.error("Error fetching departments:", error);
@@ -44,7 +44,7 @@ const CoeDashboard = () => {
   const handleSelectDepartment = async (school: string) => {
     setSelectedDepartment(school);
 
-    let res = await axios.get(`https://exam-backend-mocha.vercel.app/register`);
+    let res = await axios.get(`https://exam-backend-eight.vercel.app/register`);
     let faculty = res.data.data.filter((user) => user.department === school && user.role === "faculty" && user.action === "Accepted");
     setFacultyList(faculty);
     // console.log(faculty)
@@ -56,7 +56,7 @@ const CoeDashboard = () => {
   };
 
   let getSubjects = async (facultyId: string) => {
-    let res = await axios.get(`https://exam-backend-mocha.vercel.app/subject/${facultyId}`);
+    let res = await axios.get(`https://exam-backend-eight.vercel.app/subject/${facultyId}`);
     setSubjects(res.data.data);
 
   }
@@ -81,7 +81,7 @@ const CoeDashboard = () => {
     };
     // console.log(subjectData)
 
-    let res = await axios.post(`https://exam-backend-mocha.vercel.app/subject`, subjectData);
+    let res = await axios.post(`https://exam-backend-eight.vercel.app/subject`, subjectData);
     console.log(res.data)
     if (res.data.success === true) {
       getSubjects(selectedFaculty._id); 
@@ -98,7 +98,7 @@ const CoeDashboard = () => {
   };
 
   const handleRemoveSubject = async(subjectId: string) => {
-    let res = await axios.delete(`https://exam-backend-mocha.vercel.app/subject/${subjectId}`);
+    let res = await axios.delete(`https://exam-backend-eight.vercel.app/subject/${subjectId}`);
     if (res.data.success === true) {
       getSubjects(selectedFaculty._id);
       toast.success("Subject removed successfully");
@@ -106,7 +106,7 @@ const CoeDashboard = () => {
   };
 
   const handleDownloadPaper = (subjectName: string, paperPath: string) => {
-    const publicUrl = `https://exam-backend-mocha.vercel.app/${paperPath.replace(/\\/g, '/')}`; // Replace backslashes for Windows paths
+    const publicUrl = `https://exam-backend-eight.vercel.app/${paperPath.replace(/\\/g, '/')}`; // Replace backslashes for Windows paths
     window.open(publicUrl, '_blank'); // Open in new tab
   };
   

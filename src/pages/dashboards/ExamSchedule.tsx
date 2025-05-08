@@ -29,7 +29,7 @@ const ExamSchedule = () => {
 
 
     let fetchExam = async () => {
-        let res = await axios.get("https://exam-backend-mocha.vercel.app/exam")
+        let res = await axios.get("https://exam-backend-eight.vercel.app/exam")
         // console.log(res.data.data)
         if (res.data.success === true) {
             setExam(res.data.data)
@@ -37,7 +37,7 @@ const ExamSchedule = () => {
     }
 
     let fetchSubject = async () => {
-        let res = await axios.get("https://exam-backend-mocha.vercel.app/subject")
+        let res = await axios.get("https://exam-backend-eight.vercel.app/subject")
         // console.log(res.data.data)
         if (res.data.success === true) {
             setSubject(res.data.data)
@@ -45,7 +45,7 @@ const ExamSchedule = () => {
     }
 
     let fetchFaculty = async () => {
-        let res = await axios.get("https://exam-backend-mocha.vercel.app/register")
+        let res = await axios.get("https://exam-backend-eight.vercel.app/register")
         if (res.data.success === true) {
             setFaculty(res.data.data)
         }
@@ -59,7 +59,7 @@ const ExamSchedule = () => {
 
 
     const handleRemoveSubject = async (id: string) => {
-        let res = await axios.delete(`https://exam-backend-mocha.vercel.app/exam/${id}`);
+        let res = await axios.delete(`https://exam-backend-eight.vercel.app/exam/${id}`);
         if (res.data.success === true) {
             fetchExam();
             toast.success("Exam removed successfully");

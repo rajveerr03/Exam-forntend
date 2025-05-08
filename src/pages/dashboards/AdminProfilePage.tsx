@@ -17,7 +17,7 @@ const AdminProfilePage = () => {
   }, []);
 
   let getUser = async (userId: any) => {
-    let res = await axios.get(`https://exam-backend-mocha.vercel.app/register/${userId}`);
+    let res = await axios.get(`https://exam-backend-eight.vercel.app/register/${userId}`);
     setUser(res.data.data);
   }
 

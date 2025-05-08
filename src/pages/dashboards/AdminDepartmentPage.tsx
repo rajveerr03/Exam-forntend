@@ -16,14 +16,14 @@ const AdminDepartmentPage = () => {
   }, []);
 
   let fetchDepartments = async () => {
-    const res = await axios.get("https://exam-backend-mocha.vercel.app/department");  
+    const res = await axios.get("https://exam-backend-eight.vercel.app/department");  
     setDepartments(res.data.data);
   }
 
   const handleAddDepartment = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(departmentName)
-    let res = await axios.post("https://exam-backend-mocha.vercel.app/department", {departmentName:departmentName});
+    let res = await axios.post("https://exam-backend-eight.vercel.app/department", {departmentName:departmentName});
     if(res.data.success === true) {
       fetchDepartments();
       toast.success("Department added successfully");

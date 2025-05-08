@@ -47,7 +47,7 @@ const ForgotPassword = () => {
       employeeId : formData.employeeId
     }
     
-    let res = await axios.post("https://exam-backend-mocha.vercel.app/forgotpassword" , submitData )
+    let res = await axios.post("https://exam-backend-eight.vercel.app/forgotpassword" , submitData )
 
     if (res.data.success === true){
       setStage(ResetStage.VERIFY)
@@ -69,7 +69,7 @@ const ForgotPassword = () => {
       otp : formData.otp
     }
 
-    let res = await axios.post("https://exam-backend-mocha.vercel.app/verifyopt" , submitData)
+    let res = await axios.post("https://exam-backend-eight.vercel.app/verifyopt" , submitData)
     if (res.data.success === true){
       setStage(ResetStage.NEW_PASSWORD)
     }
@@ -95,7 +95,7 @@ const ForgotPassword = () => {
       newPassword : formData.newPassword
     }
     
-    let res = await axios.patch("https://exam-backend-mocha.vercel.app/newpassword" , submitData)
+    let res = await axios.patch("https://exam-backend-eight.vercel.app/newpassword" , submitData)
     if (res.data.success === true){
       setStage(ResetStage.SUCCESS)
     }
