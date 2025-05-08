@@ -17,15 +17,15 @@ const AdminDashboard = () => {
   }, []);
 
   let getAllUsers = async () => {
-    const res = await axios.get("https://exam-backend-eight.vercel.app/register");
+    const res = await axios.get("http://localhost:3000/register");
     setPendingUsers(res.data.data.filter((user) => user.action === null && user.role !== "admin"));
     setUsers(res.data.data.filter((user) => user.action === "Accepted"));
   }
 
   const handleApprove = async (userId: string) => {
     
-    let res = await axios.patch(`https://exam-backend-eight.vercel.app/register/${userId}`, {
-      action: "Accepeted" })
+    let res = await axios.patch(`http://localhost:3000/register/${userId}`, {
+      action: "Accepted" })
       if(res.data.success === true){
         getAllUsers();
         toast.success("User approved successfully");
@@ -33,7 +33,7 @@ const AdminDashboard = () => {
   };
 
   const handleReject = async (userId: string) => {
-    let res = await axios.patch(`https://exam-backend-eight.vercel.app/register/${userId}`, {
+    let res = await axios.patch(`http://localhost:3000/register/${userId}`, {
       action: "Rejected" })
       if(res.data.success === true){
         getAllUsers();

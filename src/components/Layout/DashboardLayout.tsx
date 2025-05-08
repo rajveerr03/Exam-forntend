@@ -33,7 +33,7 @@ const DashboardLayout = ({ children, title }: DashboardLayoutProps) => {
 
   let getUser = async (userId: any) => {
     // console.log(userId)
-    let res = await axios.get(`https://exam-backend-eight.vercel.app/register/${userId}`);
+    let res = await axios.get(`http://localhost:3000/register/${userId}`);
     // console.log(res.data.data);
     setUser(res.data.data);
   }

@@ -62,14 +62,14 @@ const FacultyDashboard = () => {
   }, []);
 
   let getAllSubjects = async (id : any) => {
-    let res = await axios.get(`https://exam-backend-eight.vercel.app/subject/${id}`);
+    let res = await axios.get(`http://localhost:3000/subject/${id}`);
     // console.log(res.data.data);
     setSubject(res.data.data);
   }
 
   let getUser = async (userId: any) => {
     // console.log(userId)
-    let res = await axios.get(`https://exam-backend-eight.vercel.app/register/${userId}`);
+    let res = await axios.get(`http://localhost:3000/register/${userId}`);
     // console.log(res.data.data);
     setUser(res.data.data);
   }
@@ -121,7 +121,7 @@ const FacultyDashboard = () => {
     formdata.append("type", examType)
     formdata.append("paper", selectedFile)
 
-    let res = await axios.post("https://exam-backend-eight.vercel.app/exam" , formdata)
+    let res = await axios.post("http://localhost:3000/exam" , formdata)
 
     if(res.data.success === true){
       getAllSubjects(user._id)

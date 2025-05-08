@@ -17,7 +17,7 @@ const UserDetailPage = () => {
 
   let getAllUser = async () => {
     try {
-      let res = await axios.get("https://exam-backend-eight.vercel.app/register");
+      let res = await axios.get("http://localhost:3000/register");
       if (res.data.success === true) {
         const filteredFaculty = res.data.data.filter((user: any) => user.role === "faculty" && user.action === "Accepted");
         setFaculty(filteredFaculty);
@@ -33,7 +33,7 @@ const UserDetailPage = () => {
 
   const handleRemoveSubject = async (id: string) => {
     try {
-      let res = await axios.delete(`https://exam-backend-eight.vercel.app/register/${id}`);
+      let res = await axios.delete(`http://localhost:3000/register/${id}`);
       if (res.data.success === true) {
         toast.success("User removed successfully");
         getAllUser();
